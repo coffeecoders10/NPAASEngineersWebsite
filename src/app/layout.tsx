@@ -1,6 +1,6 @@
 // app/layout.tsx
 import type { Metadata } from "next";
-import ThemeRegistry from "../components/ThemeRegistry";
+import ThemeRegistry from "@components/ThemeRegistry";
 
 export const metadata: Metadata = {
   title: "Company",

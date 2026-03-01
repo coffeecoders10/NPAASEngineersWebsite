@@ -1,10 +1,10 @@
 // app/page.tsx
 import Box from "@mui/material/Box";
-import Navbar from "../components/Navbar";
-import Hero from "../components/Hero";
-import AboutUs from "../components/sections/AboutUs";
-import ProductNumbers from "../components/sections/ProductNumbers";
-import ServicesOffered from "../components/sections/ServicesOffered";
+import Navbar from "@components/Navbar";
+import Hero from "@components/Hero";
+import AboutUs from "@components/sections/AboutUs";
+import ProductNumbers from "@components/sections/ProductNumbers";
+import ServicesOffered from "@components/sections/ServicesOffered";
 
 export default function Page() {
   return (
