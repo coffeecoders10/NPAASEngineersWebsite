@@ -9,9 +9,9 @@ interface SectionHeaderProps {
   titleVariant?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 }
 
-export default function SectionHeader({ subtitle, title, light = false, titleVariant = "h2" }: SectionHeaderProps) {
+export default function SectionHeader({ subtitle, title, light = false, titleVariant = "h3" }: SectionHeaderProps) {
   return (
-    <Box textAlign="center" mb={6}>
+    <Box textAlign="center" mb={3}>
       <SectionFadeIn>
         <Typography
           variant="h6"

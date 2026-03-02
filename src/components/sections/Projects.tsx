@@ -84,7 +84,7 @@ export default function Projects() {
   return (
     <Box id="products" sx={{ py: { xs: 8, md: 12 }, bgcolor: "#F8F8F9" }}>
       <Container maxWidth="lg">
-        <SectionHeader subtitle="Our Projects" title="Our Amazing Projects" />
+        <SectionHeader subtitle="Our Products" title="Our Amazing Products" />
 
         <Box
           sx={{

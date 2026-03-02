@@ -6,6 +6,7 @@ import Hero from "@/components/Hero";
 import Stats from "@/components/sections/Stats";
 import AboutUs from "@/components/sections/AboutUs";
 import ServicesOffered from "@/components/sections/ServicesOffered";
+import Inquiries from "@/components/sections/Inquiries";
 import Projects from "@/components/sections/Projects";
 import Team from "@/components/sections/Team";
 import Testimonials from "@/components/sections/Testimonials";
@@ -25,6 +26,7 @@ export default function Page() {
         <AboutUs />
         <ServicesOffered />
         <Stats />
+        <Inquiries />
         <Projects />
         <Team />
         <Testimonials />

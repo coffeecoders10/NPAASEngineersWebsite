@@ -1,17 +1,20 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
+import React from "react";
 import { Box, Container, Typography } from "@mui/material";
 import { useInView } from "react-intersection-observer";
 import SectionFadeIn from "@/components/SectionFadeIn";
+import PeopleAltIcon from "@mui/icons-material/PeopleAlt";
+import InventoryIcon from "@mui/icons-material/Inventory";
+import GroupsIcon from "@mui/icons-material/Groups";
 
 const facts = [
-  { value: 99, suffix: "%", label: "Success in getting happy customers" },
-  { value: 25, suffix: "K", label: "Thousands of successful business" },
-  { value: 120, suffix: "", label: "Total clients who love HighTech" },
-  { value: 5, suffix: "", label: "Stars reviews given by satisfied clients" },
+  { value: 89, suffix: "", label: "Clients", Icon: PeopleAltIcon },
+  { value: 38, suffix: "", label: "Products", Icon: InventoryIcon },
+  { value: 7, suffix: "", label: "Members", Icon: GroupsIcon },
 ];
 
-function AnimatedCounter({ target, suffix }: { target: number; suffix: string }) {
+function AnimatedCounter({ target, suffix, Icon }: { target: number; suffix: string; Icon: React.ElementType }) {
   const [count, setCount] = useState(0);
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.5 });
   const rafRef = useRef<number | null>(null);
@@ -37,20 +40,21 @@ function AnimatedCounter({ target, suffix }: { target: number; suffix: string })
   }, [inView, target]);
 
   return (
-    <Typography
-      ref={ref}
-      variant="h2"
-      sx={{
-        color: "primary.main",
-        fontFamily: "var(--font-saira), sans-serif",
-        fontWeight: 700,
-        fontSize: { xs: "2.5rem", md: "3rem" },
-        lineHeight: 1,
-        mb: 1,
-      }}
-    >
-      {count}{suffix}
-    </Typography>
+    <Box ref={ref} sx={{ display: "flex", alignItems: "center", gap: 1.5, mb: 1 }}>
+      <Icon sx={{ color: "primary.dark", fontSize: { xs: "2rem", md: "2.5rem" } }} />
+      <Typography
+        variant="h2"
+        sx={{
+          color: "primary.dark",
+          fontFamily: "var(--font-saira), sans-serif",
+          fontWeight: 700,
+          fontSize: { xs: "2.5rem", md: "3rem" },
+          lineHeight: 1,
+        }}
+      >
+        {count}{suffix}
+      </Typography>
+    </Box>
   );
 }
 
@@ -61,7 +65,7 @@ export default function Stats() {
         <Box
           sx={{
             display: "grid",
-            gridTemplateColumns: { xs: "1fr 1fr", md: "repeat(4, 1fr)" },
+            gridTemplateColumns: { xs: "1fr", sm: "repeat(3, 1fr)" },
             gap: 4,
           }}
         >
@@ -71,11 +75,11 @@ export default function Stats() {
                 sx={{
                   display: "flex",
                   flexDirection: "column",
-                  alignItems: { xs: "center", md: "flex-start" },
-                  textAlign: { xs: "center", md: "left" },
+                  alignItems: "center",
+                  textAlign: "center",
                 }}
               >
-                <AnimatedCounter target={fact.value} suffix={fact.suffix} />
+                <AnimatedCounter target={fact.value} suffix={fact.suffix} Icon={fact.Icon} />
                 <Typography
                   variant="body1"
                   sx={{ color: "white", fontWeight: 500, lineHeight: 1.4 }}
