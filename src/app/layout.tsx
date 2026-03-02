@@ -1,18 +1,12 @@
 // app/layout.tsx
 import type { Metadata } from "next";
-import { Inter, Saira } from "next/font/google";
-import ThemeRegistry from "@components/ThemeRegistry";
+import { Poppins } from "next/font/google";
+import ThemeRegistry from "@/components/ThemeRegistry";
 
-const inter = Inter({
+const poppins = Poppins({
   subsets: ["latin"],
-  variable: "--font-inter",
-  display: "swap",
-});
-
-const saira = Saira({
-  subsets: ["latin"],
-  weight: ["500", "600", "700"],
-  variable: "--font-saira",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-poppins",
   display: "swap",
 });
 
@@ -25,7 +19,7 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${saira.variable}`}>
+    <html lang="en" className={poppins.variable}>
       <body>
         <ThemeRegistry>{children}</ThemeRegistry>
       </body>

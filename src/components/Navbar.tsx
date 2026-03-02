@@ -39,10 +39,10 @@ export default function Navbar() {
           <Toolbar disableGutters sx={{ py: 0.5 }}>
             {/* Brand */}
             <Typography
-              variant="h4"
+              variant="h5"
               sx={{ fontFamily: "var(--font-saira), sans-serif", fontWeight: 700, color: "white", mr: 4, flexShrink: 0 }}
             >
-              NPAAS <Box component="span" color="secondary.main">Engineers</Box>
+              NPAAS ENGINEERS
             </Typography>
 
             {/* Desktop nav links */}
