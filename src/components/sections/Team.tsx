@@ -9,7 +9,7 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import SectionHeader from "@components/ui/SectionHeader";
+import SectionHeader from "@/components/ui/SectionHeader";
 
 const members = [
   { name: "John Doe", role: "CEO & Co-Founder", img: "/img/team-1.jpg" },
@@ -99,7 +99,7 @@ function CustomNext({ onClick }: { onClick?: () => void }) {
 
 export default function Team() {
   return (
-    <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: "background.default" }}>
+    <Box id="team" sx={{ py: { xs: 8, md: 12 }, bgcolor: "background.default" }}>
       <Container maxWidth="lg">
         <SectionHeader subtitle="Our Team" title="Meet Our Expert Team" />
 

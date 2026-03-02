@@ -3,7 +3,7 @@ import { Box, Container, Divider, Rating, Typography } from "@mui/material";
 import Image from "next/image";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import SectionHeader from "@components/ui/SectionHeader";
+import SectionHeader from "@/components/ui/SectionHeader";
 
 const testimonials = [
   {

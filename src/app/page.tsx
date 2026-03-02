@@ -1,18 +1,18 @@
 // app/page.tsx
 import Box from "@mui/material/Box";
-import Topbar from "@components/Topbar";
-import Navbar from "@components/Navbar";
-import Hero from "@components/Hero";
-import Stats from "@components/sections/Stats";
-import AboutUs from "@components/sections/AboutUs";
-import ServicesOffered from "@components/sections/ServicesOffered";
-import Projects from "@components/sections/Projects";
-import Team from "@components/sections/Team";
-import Testimonials from "@components/sections/Testimonials";
-import Contact from "@components/sections/Contact";
-import Footer from "@components/Footer";
-import BackToTop from "@components/ui/BackToTop";
-import LoadingSpinner from "@components/ui/LoadingSpinner";
+import Topbar from "@/components/Topbar";
+import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
+import Stats from "@/components/sections/Stats";
+import AboutUs from "@/components/sections/AboutUs";
+import ServicesOffered from "@/components/sections/ServicesOffered";
+import Projects from "@/components/sections/Projects";
+import Team from "@/components/sections/Team";
+import Testimonials from "@/components/sections/Testimonials";
+import Contact from "@/components/sections/Contact";
+import Footer from "@/components/Footer";
+import BackToTop from "@/components/ui/BackToTop";
+import LoadingSpinner from "@/components/ui/LoadingSpinner";
 
 export default function Page() {
   return (

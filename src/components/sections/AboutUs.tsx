@@ -1,7 +1,7 @@
 "use client";
 import { Box, Button, Container, Typography } from "@mui/material";
 import Image from "next/image";
-import SectionFadeIn from "@components/SectionFadeIn";
+import SectionFadeIn from "@/components/SectionFadeIn";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
 const highlights = [
@@ -12,7 +12,7 @@ const highlights = [
 
 export default function AboutUs() {
   return (
-    <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: "background.default" }}>
+    <Box id="about" sx={{ py: { xs: 8, md: 12 }, bgcolor: "background.default" }}>
       <Container maxWidth="lg">
         <Box
           sx={{

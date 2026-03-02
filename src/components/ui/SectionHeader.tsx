@@ -1,6 +1,6 @@
 "use client";
 import { Box, Typography } from "@mui/material";
-import SectionFadeIn from "@components/SectionFadeIn";
+import SectionFadeIn from "@/components/SectionFadeIn";
 
 interface SectionHeaderProps {
   subtitle: string;

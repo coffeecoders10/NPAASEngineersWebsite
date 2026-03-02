@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Box, Container, Typography } from "@mui/material";
 import { useInView } from "react-intersection-observer";
-import SectionFadeIn from "@components/SectionFadeIn";
+import SectionFadeIn from "@/components/SectionFadeIn";
 
 const facts = [
   { value: 99, suffix: "%", label: "Success in getting happy customers" },

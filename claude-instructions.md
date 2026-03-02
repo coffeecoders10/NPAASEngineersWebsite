@@ -35,13 +35,13 @@ Configured in `tsconfig.json`. Next.js maps these automatically to webpack.
 | Alias | Resolves to |
 |-------|-------------|
 | `@/*` | `src/*` |
-| `@components/*` | `src/components/*` |
+| `@/components/*` | `src/components/*` |
 | `@theme/*` | `src/theme/*` |
 
 **Usage examples:**
 ```ts
-import Navbar from '@components/Navbar';
-import SectionFadeIn from '@components/SectionFadeIn';
+import Navbar from '@/components/Navbar';
+import SectionFadeIn from '@/components/SectionFadeIn';
 import { theme } from '@theme/theme';
 ```
 

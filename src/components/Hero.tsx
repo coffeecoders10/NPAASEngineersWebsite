@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 export default function Hero() {
   return (
-    <Box sx={{ position: "relative", height: { xs: 400, sm: 500, md: 650 }, overflow: "hidden" }}>
+    <Box id="home" sx={{ position: "relative", height: { xs: 400, sm: 500, md: 650 }, overflow: "hidden" }}>
       {/* Background image */}
       <Image
         src="/img/hero.jpg"

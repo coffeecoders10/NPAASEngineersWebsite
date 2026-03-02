@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   AppBar,
   Box,
@@ -10,94 +10,90 @@ import {
   List,
   ListItemButton,
   ListItemText,
-  Popper,
-  Paper,
   Toolbar,
   Typography,
-  Collapse,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import { AnimatePresence, motion } from "framer-motion";
 
-const navLinks = ["Home", "About", "Services", "Projects", "Team", "Testimonials", "Contact"];
-const pageLinks = ["About Us", "Our Team", "Services", "Projects", "Testimonials", "Contact Us", "404 Page"];
+const navLinks = [
+  { label: "Home", id: "home" },
+  { label: "About", id: "about" },
+  { label: "Services", id: "services" },
+  { label: "Products", id: "products" },
+  { label: "Team", id: "team" },
+  { label: "Contact", id: "contact" },
+];
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [pagesAnchor, setPagesAnchor] = useState<HTMLElement | null>(null);
-  const [mobilePages, setMobilePages] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
-  const handlePagesEnter = (e: React.MouseEvent<HTMLElement>) => setPagesAnchor(e.currentTarget);
-  const handlePagesLeave = () => setTimeout(() => setPagesAnchor(null), 150);
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 10);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const scrollToSection = (id: string) => {
+    if (id === "home") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+    }
+    setMobileOpen(false);
+  };
 
   return (
     <>
-      <AppBar position="sticky" elevation={0} sx={{ bgcolor: "primary.main", zIndex: 1100 }}>
+      <AppBar
+        position="sticky"
+        elevation={0}
+        sx={{
+          zIndex: 1100,
+          transition: "background 0.4s, backdrop-filter 0.4s, box-shadow 0.4s",
+          bgcolor: scrolled ? "rgba(22, 76, 104, 0.55)" : "primary.main",
+          backdropFilter: scrolled ? "blur(16px) saturate(1.6)" : "none",
+          WebkitBackdropFilter: scrolled ? "blur(16px) saturate(1.6)" : "none",
+          boxShadow: scrolled ? "0 2px 24px 0 rgba(0,0,0,0.18)" : "none",
+          borderBottom: scrolled ? "1px solid rgba(255,255,255,0.12)" : "none",
+        }}
+      >
         <Container maxWidth="lg">
           <Toolbar disableGutters sx={{ py: 0.5 }}>
             {/* Brand */}
             <Typography
               variant="h5"
-              sx={{ fontFamily: "var(--font-saira), sans-serif", fontWeight: 700, color: "white", mr: 4, flexShrink: 0 }}
+              sx={{ fontFamily: "var(--font-saira), sans-serif", fontWeight: 700, color: "white", flexShrink: 0 }}
             >
               NPAAS ENGINEERS
             </Typography>
 
-            {/* Desktop nav links */}
-            <Box sx={{ display: { xs: "none", lg: "flex" }, alignItems: "center", flex: 1, gap: 0.5 }}>
+            {/* Spacer */}
+            <Box sx={{ flex: 1 }} />
+
+            {/* Desktop nav links - right aligned */}
+            <Box sx={{ display: { xs: "none", lg: "flex" }, alignItems: "center", gap: 0.5 }}>
               {navLinks.map((link) => (
                 <Button
-                  key={link}
-                  href="#"
-                  sx={{ color: "white", fontWeight: 500, fontSize: "0.95rem", "&:hover": { color: "secondary.main" }, transition: "color 0.3s" }}
+                  key={link.id}
+                  onClick={() => scrollToSection(link.id)}
+                  sx={{
+                    color: "white",
+                    fontWeight: 500,
+                    fontSize: "0.95rem",
+                    "&:hover": { color: "secondary.main" },
+                    transition: "color 0.3s",
+                  }}
                 >
-                  {link}
+                  {link.label}
                 </Button>
               ))}
-
-              {/* Pages dropdown */}
-              <Box onMouseEnter={handlePagesEnter} onMouseLeave={handlePagesLeave} sx={{ position: "relative" }}>
-                <Button
-                  endIcon={<KeyboardArrowDownIcon />}
-                  sx={{ color: "white", fontWeight: 500, fontSize: "0.95rem", "&:hover": { color: "secondary.main" }, transition: "color 0.3s" }}
-                >
-                  Pages
-                </Button>
-                <Popper open={Boolean(pagesAnchor)} anchorEl={pagesAnchor} placement="bottom-start" sx={{ zIndex: 1200 }}>
-                  <AnimatePresence>
-                    {Boolean(pagesAnchor) && (
-                      <motion.div
-                        initial={{ opacity: 0, y: -8 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -8 }}
-                        transition={{ duration: 0.25 }}
-                      >
-                        <Paper elevation={4} sx={{ mt: 1, minWidth: 180, borderRadius: 1, overflow: "hidden" }}>
-                          {pageLinks.map((p) => (
-                            <Box
-                              key={p}
-                              component="a"
-                              href="#"
-                              sx={{
-                                display: "block", px: 2, py: 1, color: "text.primary", fontSize: "0.9rem",
-                                transition: "all 0.3s", "&:hover": { color: "primary.main", pl: 3, bgcolor: "#f5f5f5" },
-                              }}
-                            >
-                              {p}
-                            </Box>
-                          ))}
-                        </Paper>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </Popper>
-              </Box>
             </Box>
 
             {/* Mobile hamburger */}
-            <Box sx={{ display: { xs: "flex", lg: "none" }, ml: "auto" }}>
+            <Box sx={{ display: { xs: "flex", lg: "none" } }}>
               <IconButton onClick={() => setMobileOpen(true)} sx={{ color: "white" }}>
                 <MenuIcon />
               </IconButton>
@@ -123,23 +119,10 @@ export default function Navbar() {
         </Box>
         <List>
           {navLinks.map((link) => (
-            <ListItemButton key={link} href="#" sx={{ color: "white" }}>
-              <ListItemText primary={link} />
+            <ListItemButton key={link.id} onClick={() => scrollToSection(link.id)} sx={{ color: "white" }}>
+              <ListItemText primary={link.label} />
             </ListItemButton>
           ))}
-          <ListItemButton onClick={() => setMobilePages(!mobilePages)} sx={{ color: "white" }}>
-            <ListItemText primary="Pages" />
-            <KeyboardArrowDownIcon sx={{ transform: mobilePages ? "rotate(180deg)" : "rotate(0)", transition: "transform 0.3s", color: "secondary.main" }} />
-          </ListItemButton>
-          <Collapse in={mobilePages}>
-            <List disablePadding>
-              {pageLinks.map((p) => (
-                <ListItemButton key={p} href="#" sx={{ pl: 4, color: "secondary.main" }}>
-                  <ListItemText primary={p} primaryTypographyProps={{ fontSize: "0.9rem" }} />
-                </ListItemButton>
-              ))}
-            </List>
-          </Collapse>
         </List>
       </Drawer>
     </>

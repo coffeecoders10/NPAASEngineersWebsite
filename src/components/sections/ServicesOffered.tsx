@@ -7,8 +7,8 @@ import BrushIcon from "@mui/icons-material/Brush";
 import SecurityIcon from "@mui/icons-material/Security";
 import CampaignIcon from "@mui/icons-material/Campaign";
 import LaptopIcon from "@mui/icons-material/Laptop";
-import SectionFadeIn from "@components/SectionFadeIn";
-import SectionHeader from "@components/ui/SectionHeader";
+import SectionFadeIn from "@/components/SectionFadeIn";
+import SectionHeader from "@/components/ui/SectionHeader";
 
 const services = [
   {
@@ -109,7 +109,7 @@ const ServiceCard = styled(Box)(({ theme }) => ({
 
 export default function ServicesOffered() {
   return (
-    <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: "background.default" }}>
+    <Box id="services" sx={{ py: { xs: 8, md: 12 }, bgcolor: "background.default" }}>
       <Container maxWidth="lg">
         <SectionHeader subtitle="Our Services" title="Services We Offer" />
 

@@ -2,8 +2,8 @@
 import { Box, Button, Container, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import Image from "next/image";
-import SectionFadeIn from "@components/SectionFadeIn";
-import SectionHeader from "@components/ui/SectionHeader";
+import SectionFadeIn from "@/components/SectionFadeIn";
+import SectionHeader from "@/components/ui/SectionHeader";
 
 const projects = [
   { src: "/img/project-1.jpg", title: "Web Design", category: "Design" },
@@ -82,7 +82,7 @@ const ProjectItem = styled(Box)(({ theme }) => ({
 
 export default function Projects() {
   return (
-    <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: "#F8F8F9" }}>
+    <Box id="products" sx={{ py: { xs: 8, md: 12 }, bgcolor: "#F8F8F9" }}>
       <Container maxWidth="lg">
         <SectionHeader subtitle="Our Projects" title="Our Amazing Projects" />
 

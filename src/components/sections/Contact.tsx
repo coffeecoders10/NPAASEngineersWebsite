@@ -3,8 +3,8 @@ import { Box, Button, Container, TextField, Typography, Avatar } from "@mui/mate
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import PhoneIcon from "@mui/icons-material/Phone";
 import EmailIcon from "@mui/icons-material/Email";
-import SectionHeader from "@components/ui/SectionHeader";
-import SectionFadeIn from "@components/SectionFadeIn";
+import SectionHeader from "@/components/ui/SectionHeader";
+import SectionFadeIn from "@/components/SectionFadeIn";
 
 const contactDetails = [
   {
@@ -26,7 +26,7 @@ const contactDetails = [
 
 export default function Contact() {
   return (
-    <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: "background.default" }}>
+    <Box id="contact" sx={{ py: { xs: 8, md: 12 }, bgcolor: "background.default" }}>
       <Container maxWidth="lg">
         <SectionHeader subtitle="Contact Us" title="Contact For Any Query" />
 
