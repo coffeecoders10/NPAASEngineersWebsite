@@ -4,43 +4,48 @@ import { createTheme } from "@mui/material/styles";
 export const theme = createTheme({
   palette: {
     mode: "light",
-    primary: { main: "#1A73E8" },
-    secondary: { main: "#7C3AED" },
+    primary: { light: "#4D8DAE", main: "#20648A", dark: "#13425C" },
+    secondary: { main: "#4D8DAE" },
     background: {
-      default: "#FFFFFF",
+      default: "#F0F5F8",
       paper: "#FFFFFF",
     },
     text: {
-      primary: "#0B1220",
-      secondary: "#475569",
+      primary: "#13425C",
+      secondary: "#5A7A8A",
     },
   },
-  shape: { borderRadius: 16 },
+  shape: { borderRadius: 10 },
   typography: {
-    fontFamily: [
-      "ui-sans-serif",
-      "system-ui",
-      "-apple-system",
-      "Segoe UI",
-      "Roboto",
-      "Helvetica",
-      "Arial",
-      "Apple Color Emoji",
-      "Segoe UI Emoji",
-    ].join(","),
-    h1: { fontWeight: 800, letterSpacing: "-0.02em" },
-    h2: { fontWeight: 800, letterSpacing: "-0.02em" },
-    h3: { fontWeight: 800, letterSpacing: "-0.02em" },
+    fontFamily: "var(--font-inter), sans-serif",
+    h1: { fontFamily: "var(--font-saira), sans-serif", fontWeight: 700 },
+    h2: { fontFamily: "var(--font-saira), sans-serif", fontWeight: 700 },
+    h3: { fontFamily: "var(--font-saira), sans-serif", fontWeight: 700 },
+    h4: { fontFamily: "var(--font-saira), sans-serif", fontWeight: 600 },
+    h5: { fontFamily: "var(--font-saira), sans-serif", fontWeight: 600 },
+    h6: { fontFamily: "var(--font-saira), sans-serif", fontWeight: 600 },
   },
   components: {
     MuiButton: {
       styleOverrides: {
-        root: { textTransform: "none", fontWeight: 700 },
+        root: {
+          textTransform: "none",
+          fontWeight: 600,
+          borderRadius: 50,
+          transition: "all 0.5s",
+        },
       },
     },
-    MuiPaper: {
+    MuiCssBaseline: {
       styleOverrides: {
-        root: { borderRadius: 16 },
+        body: {
+          color: "#787878",
+          backgroundColor: "#F8F8F9",
+        },
+        a: {
+          textDecoration: "none",
+          color: "inherit",
+        },
       },
     },
   },

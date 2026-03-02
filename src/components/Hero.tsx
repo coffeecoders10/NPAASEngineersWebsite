@@ -1,93 +1,84 @@
-// components/Hero.tsx
 "use client";
-
-import * as React from "react";
-import Box from "@mui/material/Box";
-import Container from "@mui/material/Container";
-import Typography from "@mui/material/Typography";
-import Stack from "@mui/material/Stack";
+import { Box, Container, Typography } from "@mui/material";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
-type Props = {
-  title?: string;
-  subtitle?: string;
-};
-
-export default function Hero({
-  title = "Your Company Name",
-  subtitle = "A short, clear value proposition that explains what you do.",
-}: Props) {
+export default function Hero() {
   return (
-    <Box
-      sx={{
-        position: "relative",
-        minHeight: { xs: 520, md: 640 },
-        display: "flex",
-        alignItems: "center",
-        overflow: "hidden",
-      }}
-    >
-      <Box sx={{ position: "absolute", inset: 0, zIndex: 0 }}>
-        <Image
-          src="/img/hero.jpg"
-          alt="Hero background"
-          fill
-          priority
-          style={{ objectFit: "cover" }}
-        />
-        <Box
-          sx={{
-            position: "absolute",
-            inset: 0,
-            background:
-              "linear-gradient(180deg, rgba(11,18,32,0.70) 0%, rgba(11,18,32,0.55) 45%, rgba(11,18,32,0.78) 100%)",
-          }}
-        />
-      </Box>
+    <Box sx={{ position: "relative", height: { xs: 400, sm: 500, md: 650 }, overflow: "hidden" }}>
+      {/* Background image */}
+      <Image
+        src="/img/hero.jpg"
+        alt="NPAAS Engineers"
+        fill
+        priority
+        style={{ objectFit: "cover" }}
+      />
 
-      <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1 }}>
-        <Stack spacing={2.25} sx={{ maxWidth: 820 }}>
-          <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
-            <Image
-              src="/img/logo.png"
-              alt="Logo"
-              width={56}
-              height={56}
-              style={{ borderRadius: 14 }}
-            />
+      {/* Dark overlay */}
+      <Box
+        sx={{
+          position: "absolute",
+          inset: 0,
+          bgcolor: "rgba(0,0,0,0.45)",
+          zIndex: 1,
+        }}
+      />
+
+      {/* Content */}
+      <Box
+        sx={{
+          position: "absolute",
+          inset: 0,
+          zIndex: 2,
+          display: "flex",
+          alignItems: "center",
+        }}
+      >
+        <Container maxWidth="lg">
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] }}
+          >
             <Typography
-              variant="overline"
-              sx={{ color: "rgba(255,255,255,0.85)", letterSpacing: "0.18em" }}
+              variant="h1"
+              sx={{
+                color: "white",
+                fontFamily: "var(--font-saira), sans-serif",
+                fontWeight: 700,
+                fontSize: { xs: "2.8rem", sm: "3.8rem", md: "5rem" },
+                lineHeight: 1.1,
+                mb: 2,
+                letterSpacing: "-0.01em",
+              }}
             >
-              WELCOME
+              NPAAS Engineers
             </Typography>
-          </Box>
+          </motion.div>
 
-          <Typography
-            variant="h2"
-            sx={{
-              color: "common.white",
-              fontWeight: 900,
-              lineHeight: 1.05,
-              fontSize: { xs: 40, sm: 54, md: 64 },
-            }}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.25, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] }}
           >
-            {title}
-          </Typography>
-
-          <Typography
-            variant="h6"
-            sx={{
-              color: "rgba(255,255,255,0.82)",
-              fontWeight: 500,
-              maxWidth: 680,
-              lineHeight: 1.5,
-            }}
-          >
-            {subtitle}
-          </Typography>
-        </Stack>
-      </Container>
+            <Typography
+              variant="h5"
+              sx={{
+                color: "rgba(255,255,255,0.88)",
+                fontFamily: "var(--font-saira), sans-serif",
+                fontWeight: 500,
+                fontSize: { xs: "1rem", sm: "1.2rem", md: "1.4rem" },
+                maxWidth: 680,
+                lineHeight: 1.6,
+                letterSpacing: "0.01em",
+              }}
+            >
+              Numerical Protection and Automation Application Support Engineers
+            </Typography>
+          </motion.div>
+        </Container>
+      </Box>
     </Box>
   );
 }
