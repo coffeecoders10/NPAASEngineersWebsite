@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 export default function Hero() {
   return (
-    <Box id="home" sx={{ position: "relative", height: { xs: 400, sm: 500, md: 650 }, overflow: "hidden" }}>
+    <Box id="home" sx={{ position: "relative", height: 650, overflow: "hidden" }}>
       {/* Background image */}
       <Image
         src="/img/hero.jpg"
@@ -62,7 +62,7 @@ export default function Hero() {
                 color: "white",
                 fontFamily: "var(--font-saira), sans-serif",
                 fontWeight: 800,
-                fontSize: { xs: "2.8rem", sm: "3.8rem", md: "5rem" },
+                fontSize: { xs: "2.25rem", md: "5rem" },
                 lineHeight: 1.1,
                 mb: 2,
                 letterSpacing: "-0.01em",

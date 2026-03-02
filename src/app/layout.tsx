@@ -13,9 +13,6 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: "NPAAS Engineers",
   description: "Numerical Protection and Automation Application Support Engineers",
-  icons: {
-    icon: "/img/logo.png",
-  },
 };
 
 export default function RootLayout({

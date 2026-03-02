@@ -6,10 +6,9 @@ interface SectionHeaderProps {
   subtitle: string;
   title: string;
   light?: boolean;
-  titleVariant?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 }
 
-export default function SectionHeader({ subtitle, title, light = false, titleVariant = "h3" }: SectionHeaderProps) {
+export default function SectionHeader({ subtitle, title, light = false }: SectionHeaderProps) {
   return (
     <Box textAlign="center" mb={3}>
       <SectionFadeIn>
@@ -24,9 +23,12 @@ export default function SectionHeader({ subtitle, title, light = false, titleVar
           {subtitle}
         </Typography>
         <Typography
-          variant={titleVariant}
+          variant="h3"
           color={light ? "white" : "text.primary"}
-          sx={{ fontFamily: "var(--font-saira), sans-serif" }}
+          sx={{ 
+            fontFamily: "var(--font-saira), sans-serif",
+            fontSize: { xs: "h4.fontSize", md: "h3.fontSize" }
+          }}
         >
           {title}
         </Typography>
