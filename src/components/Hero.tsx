@@ -35,31 +35,47 @@ export default function Hero() {
           alignItems: "center",
         }}
       >
-        <Container maxWidth="lg">
+        <Container maxWidth="lg" sx={{textAlign: "center"}}>
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
             transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] }}
+          >
+            <Image
+              src="/img/logo.png"
+              alt="NPAAS Engineers Logo"
+              width={200}
+              height={210}
+            />
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.25, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] }}
           >
             <Typography
               variant="h1"
               sx={{
                 color: "white",
                 fontFamily: "var(--font-saira), sans-serif",
-                fontWeight: 700,
+                fontWeight: 800,
                 fontSize: { xs: "2.8rem", sm: "3.8rem", md: "5rem" },
                 lineHeight: 1.1,
                 mb: 2,
                 letterSpacing: "-0.01em",
               }}
             >
-              NPAAS Engineers
+              NPAAS ENGINEERS
             </Typography>
           </motion.div>
 
           <motion.div
             initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.25, ease: [0.25, 0.46, 0.45, 0.94] as [number, number, number, number] }}
           >
             <Typography
@@ -69,9 +85,9 @@ export default function Hero() {
                 fontFamily: "var(--font-saira), sans-serif",
                 fontWeight: 500,
                 fontSize: { xs: "1rem", sm: "1.2rem", md: "1.4rem" },
-                maxWidth: 680,
                 lineHeight: 1.6,
                 letterSpacing: "0.01em",
+                textTransform: "uppercase",
               }}
             >
               Numerical Protection and Automation Application Support Engineers

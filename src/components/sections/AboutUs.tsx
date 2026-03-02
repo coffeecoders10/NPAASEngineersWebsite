@@ -5,14 +5,14 @@ import SectionFadeIn from "@/components/SectionFadeIn";
 import CheckCircleIcon from "@mui/icons-material/CheckCircle";
 
 const highlights = [
-  "Professional & Expert Team",
-  "Better Features & Reliability",
-  "24/7 Customer Support",
+  "Authorized Business Associates of Ashida Electronics Pvt Ltd.",
+  "Supply, Testing & Commissioning of Protection Relays",
+  "Control & Relay Panels and Substation Automation Systems",
 ];
 
 export default function AboutUs() {
   return (
-    <Box id="about" sx={{ py: { xs: 8, md: 12 }, bgcolor: "background.default" }}>
+    <Box id="about" sx={{ py: 6, bgcolor: "background.default" }}>
       <Container maxWidth="lg">
         <Box
           sx={{
@@ -82,17 +82,14 @@ export default function AboutUs() {
               About Us
             </Typography>
             <Typography
-              variant="h2"
+              variant="h4"
               color="text.primary"
-              sx={{ fontFamily: "var(--font-saira), sans-serif", mb: 3, lineHeight: 1.2 }}
+              sx={{ fontFamily: "var(--font-saira), sans-serif", mb: 3, lineHeight: 1.2, fontWeight: 800 }}
             >
-              We Are The Best IT Solutions Agency
-            </Typography>
-            <Typography variant="body1" color="text.secondary" mb={2} sx={{ lineHeight: 1.8 }}>
-              Diam dolor diam ipsum et tempor sit. Aliqu diam amet diam et eos labore. Clita erat ipsum et lorem et sit sed stet lorem sit clita duo justo magna dolore erat amet.
+              Trusted Vendors for Ashida Electronics Automation Products
             </Typography>
             <Typography variant="body1" color="text.secondary" mb={3} sx={{ lineHeight: 1.8 }}>
-              Diam dolor diam ipsum et tempor sit. Aliqu diam amet diam et eos labore. Clita erat ipsum et lorem et sit sed stet lorem sit clita duo justo magna dolore erat amet.
+              NPAAS Engineers are authorized Business Associates of Ashida Electronics Pvt Ltd., engaged in the Supply, Testing, and Commissioning of their automation product range — comprising Protection Relays, Control &amp; Relay Panels, and Substation Automation Systems (SAS). The firm serves as a dedicated vendor, managing the complete sales cycle for utilities, industrial establishments, and infrastructure projects that require dependable power protection solutions.
             </Typography>
 
             {highlights.map((item) => (
@@ -108,9 +105,12 @@ export default function AboutUs() {
               variant="contained"
               color="secondary"
               size="large"
-              sx={{ mt: 3, color: "white", px: 5, py: 1.5 }}
+              href="YOUR_CERTIFICATE_LINK_HERE"
+              target="_blank"
+              rel="noopener noreferrer"
+              sx={{ mt: 3, px: 4, py: 1.5 }}
             >
-              More Details
+              View Dealership Certificate
             </Button>
           </SectionFadeIn>
         </Box>

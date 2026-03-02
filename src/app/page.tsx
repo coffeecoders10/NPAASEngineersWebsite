@@ -22,9 +22,9 @@ export default function Page() {
       <Navbar />
       <main>
         <Hero />
-        <Stats />
         <AboutUs />
         <ServicesOffered />
+        <Stats />
         <Projects />
         <Team />
         <Testimonials />

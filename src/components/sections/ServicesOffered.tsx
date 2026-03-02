@@ -1,49 +1,30 @@
 "use client";
 import { Box, Container, Typography } from "@mui/material";
 import { styled } from "@mui/material/styles";
-import CodeIcon from "@mui/icons-material/Code";
-import ArticleIcon from "@mui/icons-material/Article";
-import BrushIcon from "@mui/icons-material/Brush";
-import SecurityIcon from "@mui/icons-material/Security";
-import CampaignIcon from "@mui/icons-material/Campaign";
-import LaptopIcon from "@mui/icons-material/Laptop";
+import ElectricBoltIcon from "@mui/icons-material/ElectricBolt";
+import DashboardCustomizeIcon from "@mui/icons-material/DashboardCustomize";
+import FactoryIcon from "@mui/icons-material/Factory";
 import SectionFadeIn from "@/components/SectionFadeIn";
 import SectionHeader from "@/components/ui/SectionHeader";
 
 const services = [
   {
-    icon: <CodeIcon sx={{ fontSize: 48, color: "primary.main", transition: "color 0.5s" }} />,
-    title: "Web Design",
-    desc: "Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam",
+    icon: <ElectricBoltIcon sx={{ fontSize: 48, color: "primary.main", transition: "color 0.5s" }} />,
+    title: "Protection Relays",
+    desc: "Supply, testing, and commissioning of Ashida Electronics protection relays for reliable fault detection and power system safety in utilities and industrial setups.",
   },
   {
-    icon: <ArticleIcon sx={{ fontSize: 48, color: "primary.main", transition: "color 0.5s" }} />,
-    title: "Web Development",
-    desc: "Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam",
+    icon: <DashboardCustomizeIcon sx={{ fontSize: 48, color: "primary.main", transition: "color 0.5s" }} />,
+    title: "Control & Relay Panels",
+    desc: "Design, supply, and commissioning of Control & Relay Panels tailored for substations, ensuring precise control and protection of electrical systems.",
   },
   {
-    icon: <BrushIcon sx={{ fontSize: 48, color: "primary.main", transition: "color 0.5s" }} />,
-    title: "UI/UX Design",
-    desc: "Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam",
-  },
-  {
-    icon: <SecurityIcon sx={{ fontSize: 48, color: "primary.main", transition: "color 0.5s" }} />,
-    title: "Web Security",
-    desc: "Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam",
-  },
-  {
-    icon: <CampaignIcon sx={{ fontSize: 48, color: "primary.main", transition: "color 0.5s" }} />,
-    title: "Digital Marketing",
-    desc: "Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam",
-  },
-  {
-    icon: <LaptopIcon sx={{ fontSize: 48, color: "primary.main", transition: "color 0.5s" }} />,
-    title: "Programming",
-    desc: "Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam",
+    icon: <FactoryIcon sx={{ fontSize: 48, color: "primary.main", transition: "color 0.5s" }} />,
+    title: "Substation Automation",
+    desc: "End-to-end deployment of Substation Automation Systems (SAS) for modern grid infrastructure, enabling intelligent monitoring, control, and remote management.",
   },
 ];
 
-// Using emotion styled() to handle parent:hover triggering child ::after pseudo-element
 const ServiceCard = styled(Box)(({ theme }) => ({
   position: "relative",
   borderRadius: 10,
@@ -54,12 +35,8 @@ const ServiceCard = styled(Box)(({ theme }) => ({
   transition: "all 0.5s",
   cursor: "pointer",
 
-  "& .services-content": {
-    position: "relative",
-    zIndex: 0,
-  },
-
-  "& .services-content::after": {
+  // Overlay covers the entire card via ::after on the card itself
+  "&::after": {
     content: '""',
     position: "absolute",
     width: "100%",
@@ -67,12 +44,12 @@ const ServiceCard = styled(Box)(({ theme }) => ({
     top: 0,
     left: 0,
     borderRadius: 10,
-    background: "rgba(24, 66, 182, 0.92)",
+    background: `linear-gradient(135deg, ${theme.palette.primary.main} 0%, ${theme.palette.secondary.main} 100%)`,
     transition: "height 0.5s ease",
     zIndex: 1,
   },
 
-  "&:hover .services-content::after": {
+  "&:hover::after": {
     height: "100%",
   },
 
@@ -83,7 +60,7 @@ const ServiceCard = styled(Box)(({ theme }) => ({
   },
 
   "&:hover .services-icon .MuiSvgIcon-root": {
-    color: `${theme.palette.secondary.main} !important`,
+    color: `${theme.palette.primary.contrastText} !important`,
   },
 
   "& .services-title": {
@@ -109,35 +86,34 @@ const ServiceCard = styled(Box)(({ theme }) => ({
 
 export default function ServicesOffered() {
   return (
-    <Box id="services" sx={{ py: { xs: 8, md: 12 }, bgcolor: "background.default" }}>
+    <Box id="services" sx={{ py: 5, bgcolor: "background.default" }}>
       <Container maxWidth="lg">
-        <SectionHeader subtitle="Our Services" title="Services We Offer" />
+        <SectionHeader subtitle="Our Services" title="Services We Offer" titleVariant="h4" />
 
         <Box
           sx={{
             display: "grid",
             gap: 3,
-            gridTemplateColumns: { xs: "1fr", md: "repeat(2, 1fr)", lg: "repeat(3, 1fr)" },
+            gridTemplateColumns: { xs: "1fr", md: "repeat(3, 1fr)" },
+            alignItems: "stretch",
           }}
         >
           {services.map((service, idx) => (
-            <SectionFadeIn key={service.title} delay={idx * 0.1}>
-              <ServiceCard>
-                <Box className="services-content">
-                  <Box className="services-icon" mb={2}>
-                    {service.icon}
-                  </Box>
-                  <Typography
-                    variant="h5"
-                    className="services-title"
-                    sx={{ fontFamily: "var(--font-saira), sans-serif", fontWeight: 600, mb: 1.5, color: "text.primary" }}
-                  >
-                    {service.title}
-                  </Typography>
-                  <Typography variant="body2" className="services-desc" sx={{ color: "text.secondary", lineHeight: 1.7 }}>
-                    {service.desc}
-                  </Typography>
+            <SectionFadeIn key={service.title} delay={idx * 0.1} sx={{ height: "100%" }}>
+              <ServiceCard sx={{ height: "100%" }}>
+                <Box className="services-icon" mb={2}>
+                  {service.icon}
                 </Box>
+                <Typography
+                  variant="h5"
+                  className="services-title"
+                  sx={{ fontFamily: "var(--font-saira), sans-serif", fontWeight: 600, mb: 1.5, color: "text.primary" }}
+                >
+                  {service.title}
+                </Typography>
+                <Typography variant="body2" className="services-desc" sx={{ color: "text.secondary", lineHeight: 1.7 }}>
+                  {service.desc}
+                </Typography>
               </ServiceCard>
             </SectionFadeIn>
           ))}
