@@ -5,7 +5,7 @@ import Image from "next/image";
 import SectionFadeIn from "@/components/SectionFadeIn";
 import SectionHeader from "@/components/ui/SectionHeader";
 
-const projects = [
+const products = [
   { src: "/img/project-1.jpg", title: "Web Design", category: "Design" },
   { src: "/img/project-2.jpg", title: "Cyber Security", category: "Security" },
   { src: "/img/project-3.jpg", title: "Mobile App Info", category: "Development" },
@@ -14,14 +14,14 @@ const projects = [
   { src: "/img/project-6.jpg", title: "Keyword Research", category: "SEO" },
 ];
 
-const ProjectItem = styled(Box)(({ theme }) => ({
+const ProductItem = styled(Box)(({ theme }) => ({
   position: "relative",
   borderRadius: 10,
   overflow: "hidden",
   cursor: "pointer",
 
   // Hover overlay
-  "& .project-content": {
+  "& .product-content": {
     position: "absolute",
     inset: 0,
     display: "flex",
@@ -35,12 +35,12 @@ const ProjectItem = styled(Box)(({ theme }) => ({
     padding: 24,
   },
 
-  "&:hover .project-content": {
+  "&:hover .product-content": {
     opacity: 1,
   },
 
-  // Corner decorations (before/after on .project-img)
-  "& .project-img::before": {
+  // Corner decorations (before/after on .product-img)
+  "& .product-img::before": {
     content: '""',
     position: "absolute",
     width: 100,
@@ -53,7 +53,7 @@ const ProjectItem = styled(Box)(({ theme }) => ({
     transition: "opacity 0.5s",
   },
 
-  "& .project-img::after": {
+  "& .product-img::after": {
     content: '""',
     position: "absolute",
     width: 100,
@@ -66,7 +66,7 @@ const ProjectItem = styled(Box)(({ theme }) => ({
     transition: "opacity 0.5s",
   },
 
-  "&:hover .project-img::before, &:hover .project-img::after": {
+  "&:hover .product-img::before, &:hover .product-img::after": {
     opacity: 0,
   },
 
@@ -80,7 +80,7 @@ const ProjectItem = styled(Box)(({ theme }) => ({
   },
 }));
 
-export default function Projects() {
+export default function Products() {
   return (
     <Box id="products" sx={{ py: { xs: 8, md: 12 }, bgcolor: "#F8F8F9" }}>
       <Container maxWidth="lg">
@@ -93,24 +93,24 @@ export default function Projects() {
             gridTemplateColumns: { xs: "1fr", sm: "repeat(2, 1fr)", lg: "repeat(3, 1fr)" },
           }}
         >
-          {projects.map((project, idx) => (
-            <SectionFadeIn key={project.title} delay={idx * 0.1}>
-              <ProjectItem>
+          {products.map((product, idx) => (
+            <SectionFadeIn key={product.title} delay={idx * 0.1}>
+              <ProductItem>
                 {/* Image wrapper with corner ::before/::after */}
                 <Box
-                  className="project-img"
+                  className="product-img"
                   sx={{ position: "relative", height: 250, overflow: "hidden" }}
                 >
                   <Image
-                    src={project.src}
-                    alt={project.title}
+                    src={product.src}
+                    alt={product.title}
                     fill
                     style={{ objectFit: "cover" }}
                   />
                 </Box>
 
                 {/* Hover overlay content */}
-                <Box className="project-content">
+                <Box className="product-content">
                   <Typography
                     variant="h5"
                     sx={{
@@ -121,23 +121,23 @@ export default function Projects() {
                       textAlign: "center",
                     }}
                   >
-                    {project.title}
+                    {product.title}
                   </Typography>
                   <Typography
                     variant="body2"
                     sx={{ color: "secondary.main", mb: 2, textTransform: "uppercase", letterSpacing: 1 }}
                   >
-                    {project.category}
+                    {product.category}
                   </Typography>
                   <Button
                     variant="outlined"
                     size="small"
                     sx={{ color: "white", borderColor: "white", "&:hover": { bgcolor: "secondary.main", borderColor: "secondary.main" } }}
                   >
-                    View Project
+                    View Product
                   </Button>
                 </Box>
-              </ProjectItem>
+              </ProductItem>
             </SectionFadeIn>
           ))}
         </Box>

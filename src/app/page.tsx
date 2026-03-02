@@ -7,7 +7,7 @@ import Stats from "@/components/sections/Stats";
 import AboutUs from "@/components/sections/AboutUs";
 import ServicesOffered from "@/components/sections/ServicesOffered";
 import Inquiries from "@/components/sections/Inquiries";
-import Projects from "@/components/sections/Projects";
+import Products from "@/components/sections/Products";
 import Team from "@/components/sections/Team";
 import Testimonials from "@/components/sections/Testimonials";
 import Contact from "@/components/sections/Contact";
@@ -27,9 +27,8 @@ export default function Page() {
         <ServicesOffered />
         <Stats />
         <Inquiries />
-        <Projects />
+        <Products />
         <Team />
-        <Testimonials />
         <Contact />
       </main>
       <Footer />
