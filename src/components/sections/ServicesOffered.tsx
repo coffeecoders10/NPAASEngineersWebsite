@@ -88,7 +88,7 @@ export default function ServicesOffered() {
   return (
     <Box id="services" sx={{ py: 5, bgcolor: "background.default" }}>
       <Container maxWidth="lg">
-        <SectionHeader subtitle="Our Services" title="Services We Offer" titleVariant="h4" />
+        <SectionHeader subtitle="Our Services" title="Services We Offer" />
 
         <Box
           sx={{
